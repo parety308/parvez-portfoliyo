@@ -16,25 +16,11 @@ export type PersonalInfo = {
   };
 };
 
-export type Highlight = {
-  label: string;
-  value: string;
-};
-
 export type AboutContent = {
   journey: string;
   focus: string;
   enjoy: string[];
   hobbies?: string[];
-  highlights?: Highlight[];
-};
-
-export type Experience = {
-  position: string;
-  company: string;
-  duration: string;
-  description: string;
-  responsibilities?: string[];
 };
 
 export type Skill = {
@@ -70,7 +56,6 @@ export type Project = {
 export type PortfolioData = {
   personalInfo: PersonalInfo;
   aboutContent: AboutContent;
-  experience: Experience[];
   skills: Skills;
   education: Education[];
   projects: Project[];

@@ -25,17 +25,7 @@
       "Solving tricky state-management and API-integration problems",
       "Turning a rough idea into a working, deployed product"
     ],
-    "hobbies": [
-      "Exploring open-source projects",
-      "Writing technical notes on what I build",
-      "Hiking"
-    ],
-    "highlights": [
-      { "label": "Years Learning & Building", "value": "1+" },
-      { "label": "Projects Shipped", "value": "3+" },
-      { "label": "Open Source Contributions", "value": "15+" },
-      { "label": "Tech Stack Comfort", "value": "MERN" }
-    ]
+    "hobbies": []
   },
   "experience": [
     {

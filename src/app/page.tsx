@@ -1,6 +1,12 @@
+import About from "@/components/sections/About";
 import Hero from "@/components/sections/Hero";
 import { hasResume } from "@/lib/resume";
 
 export default function Home() {
-  return <Hero resumeAvailable={hasResume()} />;
+  return (
+    <>
+      <Hero resumeAvailable={hasResume()} />
+      <About />
+    </>
+  );
 }

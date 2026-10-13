@@ -5,7 +5,6 @@ const data: PortfolioData = rawData;
 
 export const personalInfo = data.personalInfo;
 export const aboutContent = data.aboutContent;
-export const experience = data.experience;
 export const skills = data.skills;
 export const education = data.education;
 export const projects = data.projects;
