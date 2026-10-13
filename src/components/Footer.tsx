@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { isPlaceholder, personalInfo } from "@/lib/portfolio";
+import { personalInfo } from "@/lib/portfolio";
+import { socials } from "@/lib/socials";
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -9,13 +9,6 @@ const navLinks = [
   { label: "Projects", href: "/#projects" },
   { label: "Contact", href: "/#contact" },
 ];
-
-const socials = [
-  { label: "GitHub", href: personalInfo.socials.github, Icon: FaGithub },
-  { label: "LinkedIn", href: personalInfo.socials.linkedin, Icon: FaLinkedin },
-  { label: "Facebook", href: personalInfo.socials.facebook, Icon: FaFacebook },
-  { label: "Twitter", href: personalInfo.socials.twitter, Icon: FaTwitter },
-].filter((item) => !isPlaceholder(item.href));
 
 async function getYear() {
   "use cache";
