@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Md Parvez Hasan: Developer Portfolio
 
-## Getting Started
+Personal portfolio built with Next.js (App Router), React, TypeScript, Tailwind CSS v4 and Framer Motion.
 
-First, run the development server:
+## Sections
+Hero (with resume button and social links), About, Education, Skills, searchable Projects, individual project pages (`/projects/[slug]`), Contact (mailto/tel/WhatsApp plus an EmailJS form) and Footer.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run lint` | Biome lint and format check |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content
+All text lives in `src/data/portfolioData.json`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Project screenshots: `public/projects/project-1.jpg`, `project-2.jpg`, `project-3.jpg`
+- Resume: `public/resume/Parvez_Web-Developer.pdf` (the hero button switches from "Request Resume" to "Download Resume" at build time)
+- Links still marked `[...]` in the JSON (for example the Twitter/X URL) are hidden automatically.
 
-## Learn More
+## Environment variables
+See `.env.example`. Variables prefixed `NEXT_PUBLIC_` are exposed to the browser, so never put private secrets in them.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+Deploy on Vercel: import the repository and add the environment variables from `.env.example` in the project settings. Files in `public/` must be committed, and adding the resume later requires a redeploy.

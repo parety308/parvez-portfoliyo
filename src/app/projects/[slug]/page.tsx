@@ -1,9 +1,9 @@
 import {
-AlertTriangle,
-ArrowLeft,
-ExternalLink,
-ImageOff,
-Lightbulb,
+  AlertTriangle,
+  ArrowLeft,
+  ExternalLink,
+  ImageOff,
+  Lightbulb,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -14,36 +14,36 @@ import { isPlaceholder, projects } from "@/lib/portfolio";
 import { getProjectWithImage } from "@/lib/projectImages";
 
 type ProjectPageProps = {
-params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-return projects.map((project) => ({ slug: project.id }));
+  return projects.map((project) => ({ slug: project.id }));
 }
 
 export async function generateMetadata(
-props: ProjectPageProps,
+  props: ProjectPageProps,
 ): Promise<Metadata> {
-const { slug } = await props.params;
-const project = projects.find((p) => p.id === slug);
+  const { slug } = await props.params;
+  const project = projects.find((p) => p.id === slug);
 
-if (!project) {
-return { title: "Project not found" };
-}
+  if (!project) {
+    return { title: "Project not found" };
+  }
 
-return {
-title: project.name,
-description: project.shortDescription,
-};
+  return {
+    title: project.name,
+    description: project.shortDescription,
+  };
 }
 
 export default async function ProjectPage(props: ProjectPageProps) {
-const { slug } = await props.params;
-const project = getProjectWithImage(slug);
+  const { slug } = await props.params;
+  const project = getProjectWithImage(slug);
 
-if (!project) {
-notFound();
-}
+  if (!project) {
+    notFound();
+  }
 
   const hasLive = !isPlaceholder(project.liveLink);
   const hasGithub = !isPlaceholder(project.githubLink);
