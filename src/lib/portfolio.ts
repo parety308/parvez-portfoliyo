@@ -1,7 +1,7 @@
 import rawData from "@/data/portfolioData.json";
 import type { PortfolioData, Project } from "@/types/portfolio";
 
-const data: PortfolioData = rawData;
+const data = rawData as PortfolioData;
 
 export const personalInfo = data.personalInfo;
 export const aboutContent = data.aboutContent;

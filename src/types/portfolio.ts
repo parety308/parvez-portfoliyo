@@ -16,6 +16,8 @@ export type PersonalInfo = {
   };
 };
 
+
+
 export type AboutContent = {
   journey: string;
   focus: string;
@@ -23,11 +25,14 @@ export type AboutContent = {
   hobbies?: string[];
 };
 
+
+
+export type SkillLevel = "Proficient" | "Familiar";
+
 export type Skill = {
   name: string;
-  level: number;
+  level: SkillLevel;
 };
-
 export type SkillCategory = "frontend" | "backend" | "database" | "tools";
 
 export type Skills = Record<SkillCategory, Skill[]>;
