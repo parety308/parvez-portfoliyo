@@ -22,3 +22,10 @@ export function getProjectsWithImages(): ProjectWithImage[] {
     imageSrc: findImage(project.image),
   }));
 }
+
+/** A single project with its image resolved, or undefined for an unknown slug. */
+export function getProjectWithImage(
+  slug: string,
+): ProjectWithImage | undefined {
+  return getProjectsWithImages().find((project) => project.id === slug);
+}
