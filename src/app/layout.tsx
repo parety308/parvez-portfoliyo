@@ -1,21 +1,15 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Parvez Hasan | Full Stack Developer",
-  description:
-    "Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.",
+  title: "Parvez | Full Stack Developer",
+  description: "Full Stack Developer portfolio",
 };
 
-export default function RootLayout({
-  children,
-}: LayoutProps<"/">) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="flex min-h-full flex-col">
-        {children}
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
