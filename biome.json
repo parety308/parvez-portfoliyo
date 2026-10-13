@@ -19,7 +19,7 @@
       "tailwindDirectives": true
     }
   },
-  "linter": {
+   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true
@@ -29,6 +29,18 @@
       "react": "recommended"
     }
   },
+   "overrides": [
+    {
+      "includes": ["src/app/globals.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    }
+  ],
   "assist": {
     "actions": {
       "source": {
