@@ -16,16 +16,12 @@ export type PersonalInfo = {
   };
 };
 
-
-
 export type AboutContent = {
   journey: string;
   focus: string;
   enjoy: string[];
   hobbies?: string[];
 };
-
-
 
 export type SkillLevel = "Proficient" | "Familiar";
 
@@ -64,4 +60,9 @@ export type PortfolioData = {
   skills: Skills;
   education: Education[];
   projects: Project[];
+};
+
+export type ProjectWithImage = Project & {
+  /** Public URL such as "/projects/project-1.jpg", or null if the file is missing. */
+  imageSrc: string | null;
 };

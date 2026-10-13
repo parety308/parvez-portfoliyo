@@ -42,10 +42,14 @@ export default function Education() {
                 className="absolute top-2 -left-[41px] h-4 w-4 rounded-full border-4 border-[#0F172A] bg-cyan-500"
               />
               <div className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-cyan-500/20 backdrop-blur-xl">
-                <h3 className="mb-2 text-xl font-semibold text-white">{item.degree}</h3>
+                <h3 className="mb-2 text-xl font-semibold text-white">
+                  {item.degree}
+                </h3>
                 <p className="mb-2 text-sm text-cyan-400">{item.institution}</p>
                 <p className="mb-4 text-sm text-gray-500">{item.year}</p>
-                <p className="text-sm leading-relaxed text-gray-400">{item.description}</p>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {item.description}
+                </p>
               </div>
             </motion.li>
           ))}

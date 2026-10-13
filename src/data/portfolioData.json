@@ -40,7 +40,7 @@
       ]
     }
   ],
-    "skills": {
+  "skills": {
     "frontend": [
       { "name": "React.js", "level": "Proficient" },
       { "name": "Next.js", "level": "Familiar" },
