@@ -127,7 +127,12 @@
         "Modeling the request lifecycle with SLA deadlines, overdue flagging and a 15-minute cron job that auto-closes requests",
         "Protecting the API with Redis-backed rate limiting across a 58-endpoint surface"
       ],
-      "improvements": []
+      "improvements": [
+  "Send email/SMS notifications to citizens when a request changes status",
+  "Add map-based location picking and an issue heatmap for admins",
+  "Add automated tests for payment callbacks and the SLA cron job",
+  "Add Bangla/English language support"
+]
     },
     {
       "id": "rent-nest",
