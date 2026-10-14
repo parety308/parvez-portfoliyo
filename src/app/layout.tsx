@@ -12,7 +12,7 @@ const geistSans = Geist({
 
 const title = `${personalInfo.name} | ${personalInfo.title}`;
 const description =
-  "Portfolio of Md Parvez Hasan, a Full Stack Developer specializing in React, Next.js, Node.js and MongoDB. Explore projects, skills and experience.";
+  "Portfolio of Md Parvez Hasan, a Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, Node.js, PostgreSQL and MongoDB. Explore projects, skills and experience.";
 
 export const metadata: Metadata = {
   title: {

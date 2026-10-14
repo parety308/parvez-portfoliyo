@@ -24,7 +24,7 @@ const stagger: Variants = {
 
 const stats = [
   { label: "Projects Built", value: `${projects.length}+`, Icon: Code },
-  { label: "Core Stack", value: "MERN", Icon: Layers },
+  { label: "Core Stack", value: "Next.js", Icon: Layers },
   { label: "B.Sc. CSE Student", value: "CUET", Icon: GraduationCap },
 ];
 

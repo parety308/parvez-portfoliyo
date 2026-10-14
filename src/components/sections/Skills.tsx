@@ -2,18 +2,14 @@
 
 import { motion } from "framer-motion";
 import { skills } from "@/lib/portfolio";
-import type { SkillCategory, SkillLevel } from "@/types/portfolio";
+import type { SkillCategory } from "@/types/portfolio";
 
 const categoryTitles: Record<SkillCategory, string> = {
+  languages: "Languages",
   frontend: "Frontend",
   backend: "Backend",
-  database: "Database",
-  tools: "Tools & Platforms",
-};
-
-const dots: Record<SkillLevel, number> = {
-  Proficient: 4,
-  Familiar: 2,
+  database: "Databases & ORM",
+  tools: "Tools & Deployment",
 };
 
 const categories = Object.keys(categoryTitles) as SkillCategory[];
@@ -35,7 +31,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-6"
+          className="mb-14"
         >
           <p className="mb-4 text-sm tracking-[0.3em] text-cyan-400 uppercase">
             {"</> Skills"}
@@ -44,34 +40,6 @@ export default function Skills() {
             Technologies I Work With
           </h2>
         </motion.div>
-
-        <ul
-          aria-label="Skill proficiency legend"
-          className="mb-14 flex flex-wrap gap-4 text-xs text-gray-400"
-        >
-          <li className="flex items-center gap-2">
-            <span aria-hidden="true" className="flex items-center gap-1">
-              {[1, 2, 3, 4].map((n) => (
-                <span
-                  key={n}
-                  className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400"
-                />
-              ))}
-            </span>
-            4 dots = Proficient
-          </li>
-          <li className="flex items-center gap-2">
-            <span aria-hidden="true" className="flex items-center gap-1">
-              {[1, 2].map((n) => (
-                <span
-                  key={n}
-                  className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400"
-                />
-              ))}
-            </span>
-            2 dots = Familiar
-          </li>
-        </ul>
 
         <div className="grid gap-8 md:grid-cols-2">
           {categories.map((category, index) => (
@@ -82,39 +50,21 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -6 }}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-colors duration-300 hover:border-cyan-400/40"
+              className={`rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-colors duration-300 hover:border-cyan-400/40 ${
+                category === "backend" ? "md:col-span-2" : ""
+              }`}
             >
               <h3 className="mb-6 text-xl font-semibold text-cyan-400">
                 {categoryTitles[category]}
               </h3>
 
-              <ul className="space-y-4">
+              <ul className="flex flex-wrap gap-2">
                 {skills[category].map((skill) => (
                   <li
-                    key={skill.name}
-                    className="flex items-center justify-between gap-4"
+                    key={skill}
+                    className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-3.5 py-1.5 text-sm text-cyan-200 transition hover:border-cyan-400/60 hover:bg-cyan-400/10"
                   >
-                    <span className="text-sm font-medium text-gray-200">
-                      {skill.name}
-                    </span>
-
-                    <span
-                      role="img"
-                      aria-label={`${skill.name}: ${skill.level}`}
-                      className="flex shrink-0 items-center gap-1.5"
-                    >
-                      {[1, 2, 3, 4, 5].map((n) => (
-                        <span
-                          key={n}
-                          aria-hidden="true"
-                          className={`h-2.5 w-2.5 rounded-full transition-colors ${
-                            n <= dots[skill.level]
-                              ? "bg-gradient-to-br from-teal-400 to-cyan-400 shadow shadow-cyan-400/50"
-                              : "bg-white/10"
-                          }`}
-                        />
-                      ))}
-                    </span>
+                    {skill}
                   </li>
                 ))}
               </ul>

@@ -162,7 +162,12 @@ export default function Contact() {
                     <Icon size={20} aria-hidden="true" />
                   </span>
 
-                  <span className="min-w-0">
+                <p className="mb-10 max-w-lg leading-relaxed text-gray-400">
+  I'm looking for a Full Stack Developer or Software Engineer role where I
+  can build secure, scalable products and keep growing my backend and system
+  design skills. Send a message or reach out directly. I usually reply within
+  a day.
+</p>  <span className="min-w-0">
                     <span className="block text-xs tracking-wider text-gray-500 uppercase">
                       {label}
                     </span>

@@ -1,8 +1,9 @@
+
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin } from "lucide-react";
-import { education } from "@/lib/portfolio";
+import { Award, GraduationCap, Languages, MapPin } from "lucide-react";
+import { certifications, education, isPlaceholder, languages } from "@/lib/portfolio";
 
 export default function Education() {
   return (
@@ -60,13 +61,20 @@ export default function Education() {
                       Currently studying
                     </span>
                   </div>
+
                   <h3 className="mb-2 text-xl font-semibold text-white md:text-2xl">
                     {item.degree}
                   </h3>
+
                   <p className="mb-4 flex items-start gap-2 text-sm text-cyan-400">
-                    <MapPin size={16} aria-hidden="true" className="mt-0.5 shrink-0" />
+                    <MapPin
+                      size={16}
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0"
+                    />
                     {item.institution}
                   </p>
+
                   <p className="text-sm leading-relaxed text-gray-400">
                     {item.description}
                   </p>
@@ -75,6 +83,65 @@ export default function Education() {
             </motion.li>
           ))}
         </ol>
+
+        {/* Certifications and Languages */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 grid gap-8 md:grid-cols-2"
+        >
+          {/* Certifications */}
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.07]">
+            <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold tracking-[0.2em] text-cyan-400 uppercase">
+              <Award size={18} aria-hidden="true" />
+              Certifications
+            </h3>
+
+            <ul className="space-y-4">
+              {certifications.map((cert) => (
+                <li key={cert.name} className="text-sm text-gray-300">
+                  <p className="font-medium text-white">{cert.name}</p>
+                  <p className="mt-1 text-gray-400">{cert.issuer}</p>
+
+                  {!isPlaceholder(cert.url) && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-block text-cyan-400 transition hover:text-cyan-300"
+                    >
+                      View Certificate →
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Languages */}
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-teal-400/30 hover:bg-white/[0.07]">
+            <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold tracking-[0.2em] text-teal-400 uppercase">
+              <Languages size={18} aria-hidden="true" />
+              Languages
+            </h3>
+
+            <ul className="space-y-3">
+              {languages.map((lang) => (
+                <li
+                  key={lang.name}
+                  className="flex justify-between gap-4 text-sm text-gray-300"
+                >
+                  <span className="font-medium text-white">{lang.name}</span>
+                  <span className="text-right text-gray-400">
+                    {lang.level}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

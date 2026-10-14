@@ -1,3 +1,4 @@
+
 import {
   AlertTriangle,
   ArrowLeft,
@@ -47,6 +48,11 @@ export default async function ProjectPage(props: ProjectPageProps) {
 
   const hasLive = !isPlaceholder(project.liveLink);
   const hasGithub = !isPlaceholder(project.githubLink);
+  const hasLiveApi =
+    Boolean(project.liveApiLink) && !isPlaceholder(project.liveApiLink);
+  const hasBackendGithub =
+    Boolean(project.backendGithubLink) &&
+    !isPlaceholder(project.backendGithubLink);
 
   return (
     <article className="min-h-screen bg-[#0b0f19] px-6 pt-28 pb-24 text-white">
@@ -79,8 +85,8 @@ export default async function ProjectPage(props: ProjectPageProps) {
         </div>
 
         <h1 className="text-gradient mb-2 text-3xl font-extrabold md:text-5xl">
-  {project.name}
-</h1>
+          {project.name}
+        </h1>
         <p className="mb-8 text-gray-400">{project.subtitle}</p>
 
         {/* Tech stack */}
@@ -113,7 +119,20 @@ export default async function ProjectPage(props: ProjectPageProps) {
               Live Demo
             </a>
           )}
-          {hasGithub ? (
+
+          {hasLiveApi && (
+            <a
+              href={project.liveApiLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-gray-200 transition hover:border-cyan-400 hover:text-cyan-400"
+            >
+              <ExternalLink size={18} aria-hidden="true" />
+              Live API
+            </a>
+          )}
+
+          {hasGithub && (
             <a
               href={project.githubLink}
               target="_blank"
@@ -121,13 +140,20 @@ export default async function ProjectPage(props: ProjectPageProps) {
               className="inline-flex items-center gap-2 rounded-lg border border-cyan-400 px-6 py-3 text-cyan-400 transition hover:bg-cyan-400 hover:text-black"
             >
               <FaGithub size={18} aria-hidden="true" />
-              GitHub Repository
+              Frontend Repo
             </a>
-          ) : (
-            <span className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-6 py-3 text-sm text-gray-500">
+          )}
+
+          {hasBackendGithub && (
+            <a
+              href={project.backendGithubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-cyan-400 px-6 py-3 text-cyan-400 transition hover:bg-cyan-400 hover:text-black"
+            >
               <FaGithub size={18} aria-hidden="true" />
-              GitHub link not available
-            </span>
+              Backend Repo
+            </a>
           )}
         </div>
 

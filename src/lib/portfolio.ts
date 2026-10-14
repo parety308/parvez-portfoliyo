@@ -7,6 +7,8 @@ export const personalInfo = data.personalInfo;
 export const aboutContent = data.aboutContent;
 export const skills = data.skills;
 export const education = data.education;
+export const certifications = data.certifications;
+export const languages = data.languages;
 export const projects = data.projects;
 
 /** True when a value is empty or still a "[placeholder]" string from the JSON. */

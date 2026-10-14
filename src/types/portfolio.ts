@@ -2,6 +2,7 @@ export type PersonalInfo = {
   name: string;
   title: string;
   tagline: string;
+  objective?: string;
   email: string;
   phone: string;
   whatsapp?: string;
@@ -24,21 +25,32 @@ export type AboutContent = {
   learning?: string[];
 };
 
-export type SkillLevel = "Proficient" | "Familiar";
+export type SkillCategory =
+  | "languages"
+  | "frontend"
+  | "backend"
+  | "database"
+  | "tools";
 
-export type Skill = {
-  name: string;
-  level: SkillLevel;
-};
-export type SkillCategory = "frontend" | "backend" | "database" | "tools";
-
-export type Skills = Record<SkillCategory, Skill[]>;
+export type Skills = Record<SkillCategory, string[]>;
 
 export type Education = {
   degree: string;
   institution: string;
   year: string;
+  status?: string;
   description: string;
+};
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  url: string;
+};
+
+export type SpokenLanguage = {
+  name: string;
+  level: string;
 };
 
 export type Project = {
@@ -50,7 +62,9 @@ export type Project = {
   overview: string;
   techStack: string[];
   liveLink: string;
+  liveApiLink?: string;
   githubLink: string;
+  backendGithubLink?: string;
   challenges: string[];
   improvements: string[];
 };
@@ -60,6 +74,8 @@ export type PortfolioData = {
   aboutContent: AboutContent;
   skills: Skills;
   education: Education[];
+  certifications: Certification[];
+  languages: SpokenLanguage[];
   projects: Project[];
 };
 

@@ -1,9 +1,9 @@
 {
   "personalInfo": {
     "name": "Md Parvez Hasan",
-    "title": "Full Stack Developer",
-    "tagline": "I build fast, reliable web applications with React, Node.js and MongoDB — from idea to production.",
-    "objective": "Third-year Computer Science and Engineering student and self-taught Full-Stack Developer skilled in React, Next.js, Node.js, Express.js, and SQL/NoSQL databases. Seeking a Junior Full-Stack Developer role where I can build secure, scalable web applications while continuing to strengthen my system design and backend engineering skills.",
+    "title": "Full Stack Developer & Software Engineer",
+    "tagline": "I build secure, scalable web applications with Next.js, TypeScript, Node.js and PostgreSQL — from idea to production.",
+    "objective": "Third-year Computer Science and Engineering student at CUET and self-taught Full Stack Developer building web applications with React, Next.js, TypeScript, Node.js, Express, PostgreSQL, and MongoDB. Experienced in REST API design, JWT authentication, role-based access control, and payment gateway integration (Stripe, SSLCommerz, bKash). Seeking a Full Stack Developer or Software Engineer role.",
     "email": "md.parvez.hasan.dev@gmail.com",
     "phone": "+8801876097788",
     "whatsapp": "+8801876097788",
@@ -18,72 +18,61 @@
     }
   },
   "aboutContent": {
-    "journey": "I started programming in college when I built my first website, and I've been hooked ever since. What began as curiosity about how websites work turned into a full commitment to becoming a MERN stack developer — learning React, Node.js and databases through building real, end-to-end products instead of just tutorials.",
-    "focus": "Right now I'm focused on building complete, role-based platforms — marketplaces, delivery systems, booking apps — where authentication, dashboards, payments and real-time status updates all have to work together reliably.",
+    "journey": "I'm a third-year Computer Science and Engineering student at CUET and a self-taught Full Stack Developer. I learn by building complete, end-to-end products — from REST APIs and databases to polished dashboards — rather than following tutorials.",
+    "focus": "Right now I'm focused on building complete, role-based platforms — civic services, marketplaces, delivery systems — where authentication, access control, payments (Stripe, SSLCommerz, bKash) and status workflows all have to work together reliably.",
     "enjoy": [
       "Building full-stack web applications end to end",
+      "Designing secure REST APIs with clean architecture",
       "Designing clean, role-based dashboards",
-      "Solving tricky state-management and API-integration problems",
-      "Turning a rough idea into a working, deployed product"
+      "Integrating payment gateways and background jobs"
     ],
     "hobbies": ["Cricket", "Exploring open-source projects", "Hiking"],
-    "learning": ["Next.js", "TypeScript", "System design", "Testing"]
+    "learning": ["System design", "Testing", "Backend engineering"]
   },
-  "experience": [
-    {
-      "position": "Full Stack Developer Intern",
-      "company": "Cypher Bangladesh",
-      "duration": "3 Months",
-      "description": "Contributed to the development and maintenance of full-stack web applications using React, Node.js, and Express.js.",
-      "responsibilities": [
-        "Contributed to the development and maintenance of full-stack web applications using React, Node.js, and Express.js.",
-        "Collaborated with the engineering team on building and integrating REST APIs and database-driven features.",
-        "Assisted in debugging, testing, and improving application performance under senior developer guidance."
-      ]
-    }
-  ],
   "skills": {
+    "languages": ["TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "SQL"],
     "frontend": [
-      { "name": "HTML5 / CSS3", "level": "Proficient" },
-      { "name": "JavaScript", "level": "Proficient" },
-      { "name": "TypeScript", "level": "Familiar" },
-      { "name": "React.js", "level": "Proficient" },
-      { "name": "Next.js", "level": "Familiar" },
-      { "name": "Tailwind CSS", "level": "Proficient" },
-      { "name": "DaisyUI", "level": "Proficient" }
+      "React",
+      "Next.js (App Router)",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "DaisyUI",
+      "TanStack Query",
+      "TanStack Form",
+      "Zod",
+      "Recharts"
     ],
     "backend": [
-      { "name": "Node.js", "level": "Proficient" },
-      { "name": "Express.js", "level": "Proficient" },
-      { "name": "REST APIs", "level": "Proficient" },
-      { "name": "JWT Authentication", "level": "Proficient" }
+      "Node.js",
+      "Express.js",
+      "RESTful APIs",
+      "JWT Authentication",
+      "Role-Based Access Control",
+      "Google OAuth",
+      "Redis",
+      "Zod Validation",
+      "Rate Limiting",
+      "Stripe",
+      "SSLCommerz",
+      "bKash",
+      "Cloudinary"
     ],
-    "database": [
-      { "name": "MongoDB", "level": "Proficient" },
-      { "name": "PostgreSQL", "level": "Familiar" },
-      { "name": "MySQL", "level": "Familiar" },
-      { "name": "Prisma", "level": "Familiar" }
-    ],
+    "database": ["PostgreSQL", "MongoDB", "MySQL", "Prisma", "Firebase"],
     "tools": [
-      { "name": "Git & GitHub", "level": "Proficient" },
-      { "name": "Firebase", "level": "Proficient" },
-      { "name": "VS Code", "level": "Proficient" },
-      { "name": "Figma", "level": "Familiar" },
-      { "name": "Vercel", "level": "Familiar" },
-      { "name": "Netlify", "level": "Proficient" },
-      { "name": "Render", "level": "Familiar" }
-    ],
-    "interpersonal": [
-      "Teamwork",
-      "Problem-Solving",
-      "Communication",
-      "Time Management"
+      "Git",
+      "GitHub",
+      "Postman",
+      "Biome",
+      "Figma",
+      "Render",
+      "Vercel",
+      "Netlify"
     ]
   },
   "education": [
     {
       "degree": "Bachelor of Science in Computer Science & Engineering",
-      "institution": "Chittagong University of Engineering and Technology (CUET), Bangladesh",
+      "institution": "Chittagong University of Engineering & Technology (CUET), Bangladesh",
       "year": "2024 – 2028",
       "status": "3rd Year",
       "description": "Focused on software engineering, data structures and web technologies."
@@ -93,7 +82,7 @@
     {
       "name": "Web Development Course",
       "issuer": "Programming Hero (Batch 12)",
-      "url": "[Certificate URL — not provided]"
+      "url": "https://drive.google.com/file/d/1IFGG2AFLl4aCtSqvw8aaOerx3MR_F2kE/view?usp=sharing"
     }
   ],
   "languages": [
@@ -101,6 +90,121 @@
     { "name": "English", "level": "Intermediate" }
   ],
   "projects": [
+    {
+      "id": "nagar-sheba",
+      "name": "Nagar Sheba",
+      "subtitle": "City Complaint & Service Request Platform",
+      "image": "project-4",
+      "shortDescription": "A full-stack civic services platform for citizens, staff and admins, backed by a 58-endpoint TypeScript REST API with SLA tracking and SSLCommerz/bKash payments.",
+      "overview": "Nagar Sheba is a full-stack civic services platform for citizens, staff, and admins. The backend is a TypeScript REST API (58 endpoints) on Express 5, Prisma, and PostgreSQL, with Zod validation and a modular route–controller–service architecture. Authentication uses JWT with rotating refresh tokens, Google Sign-In, email OTP, and database-verified three-role access control, with Redis rate limiting. Payments run through SSLCommerz and bKash with server-side verification, idempotent callbacks, automatic refunds, and PDF receipts. Requests follow a lifecycle with SLA deadlines, overdue flagging, and auto-close via a 15-minute node-cron job. The Next.js 16 frontend uses TanStack Query, a 4-step request wizard, and Recharts dashboards, deployed on Render.",
+      "techStack": [
+        "Next.js 16",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "TanStack Query",
+        "shadcn/ui",
+        "Node.js",
+        "Express 5",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Redis",
+        "JWT",
+        "Zod",
+        "Recharts",
+        "Cloudinary",
+        "SSLCommerz",
+        "bKash"
+      ],
+      "liveLink": "https://nagar-sheba-online.onrender.com/",
+      "liveApiLink": "https://nagar-sheba.onrender.com/",
+      "githubLink": "https://github.com/parety308/Nagar-Sheba-Frontend",
+      "backendGithubLink": "https://github.com/parety308/Nagar-Sheba",
+      "challenges": [
+        "Building JWT authentication with rotating refresh tokens, Google Sign-In and email OTP, with three-role access control verified against the database",
+        "Making SSLCommerz and bKash payment callbacks idempotent, verifying them server-side, and issuing automatic refunds",
+        "Modeling the request lifecycle with SLA deadlines, overdue flagging and a 15-minute cron job that auto-closes requests",
+        "Protecting the API with Redis-backed rate limiting across a 58-endpoint surface"
+      ],
+      "improvements": []
+    },
+    {
+      "id": "rent-nest",
+      "name": "RentNest",
+      "subtitle": "Rental Property Marketplace",
+      "image": "project-3",
+      "shortDescription": "A full-stack rental marketplace with a Next.js frontend and a separate Express/Prisma backend, secure Stripe payments, and role-based dashboards for tenants, landlords and admins.",
+      "overview": "RentNest connects tenants and landlords with secure payments and admin oversight. Tenants can browse and filter listings, submit rental requests, pay securely through Stripe, and leave reviews. Landlords create and manage property listings with image uploads and review incoming rental requests. Admins manage users, moderate listings, and oversee all rental requests through a dedicated dashboard. It is deployed as two independent services — a Next.js frontend and an Express/Prisma backend on separate origins.",
+      "techStack": [
+        "Next.js 16 (App Router)",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "shadcn/ui",
+        "React Hook Form",
+        "Zod",
+        "Framer Motion",
+        "Node.js",
+        "Express 5",
+        "Prisma ORM",
+        "PostgreSQL",
+        "JWT Auth",
+        "Stripe",
+        "Cloudinary"
+      ],
+      "liveLink": "https://rentnest-a5.onrender.com/",
+      "githubLink": "https://github.com/parety308/RentNest_A5",
+      "backendGithubLink": "https://github.com/parety308/RentNest_A4",
+      "challenges": [
+        "Making authentication cookies work across two different origins by proxying client requests through a Next.js rewrite while forwarding cookies manually on server-side requests",
+        "Keeping JWT access-token expiry shorter than refresh-token expiry so the silent-refresh flow in middleware never breaks",
+        "Writing an environment-aware API client that calls a relative /api path in the browser but an absolute backend URL during server-side rendering and static generation",
+        "Verifying Stripe webhook signatures reliably in production"
+      ],
+      "improvements": [
+        "Add in-app messaging between landlords and tenants",
+        "Add map-based property search and filtering",
+        "Support additional payment methods beyond Stripe",
+        "Add an automated end-to-end test suite for the rental request → payment flow"
+      ]
+    },
+    {
+      "id": "zap-shift",
+      "name": "ZapShift",
+      "subtitle": "Courier & Parcel Delivery Service",
+      "image": "project-2",
+      "shortDescription": "A courier and parcel delivery platform with booking, online payment, real-time status tracking, and rider/warehouse coordination through role-based dashboards.",
+      "overview": "ZapShift streamlines parcel booking, online payment, and delivery tracking with real-time status updates. Riders collect and deliver parcels, update status, and confirm delivery via OTP. Admins assign riders, manage routing, and oversee warehouse operations. Delivery pricing is calculated dynamically based on weight and distance, and every parcel moves through a full lifecycle — from unpaid to delivered — with rider earnings tracking.",
+      "techStack": [
+        "React",
+        "Tailwind CSS",
+        "DaisyUI",
+        "React Router",
+        "TanStack Query",
+        "Recharts",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase Authentication",
+        "JWT",
+        "Netlify"
+      ],
+      "liveLink": "https://simple-firebase-auth-c54cc.web.app/",
+      "githubLink": "https://github.com/parety308/Zap_Shift_Client",
+      "backendGithubLink": "https://github.com/parety308/Zap_Shift_Server",
+      "challenges": [
+        "Modeling an 8-stage parcel lifecycle (unpaid → paid → pickup → in-transit → delivered) and keeping it in sync across three different dashboards",
+        "Implementing dynamic pricing rules based on parcel type, weight and whether delivery is within or outside the city",
+        "Building rider earnings logic that differs for in-city (80%) vs outside-city (60%) deliveries",
+        "Coordinating OTP-based confirmation for both pickup and final delivery"
+      ],
+      "improvements": [
+        "Add live map-based rider tracking",
+        "Send SMS/push notifications on status changes",
+        "Automate rider assignment based on proximity and load",
+        "Add a customer support / dispute-resolution flow"
+      ]
+    },
     {
       "id": "local-chef-bazaar",
       "name": "LocalChefBazaar",
@@ -136,83 +240,6 @@
         "Introduce chef-to-customer messaging",
         "Add analytics for chefs on their best-performing meals",
         "Expand automated test coverage for the ordering flow"
-      ]
-    },
-    {
-      "id": "zap-shift",
-      "name": "ZapShift",
-      "subtitle": "Courier & Parcel Delivery Service",
-      "image": "project-2",
-      "shortDescription": "A courier and parcel delivery platform with booking, real-time tracking, dynamic pricing, and rider/warehouse coordination through role-based dashboards.",
-      "overview": "ZapShift streamlines parcel booking, tracking, payment and delivery operations. Users can book parcels, pay charges, track delivery status and receive real-time updates. Riders collect and deliver parcels, update status, and confirm delivery via OTP. Admins assign riders, manage routing, and oversee warehouse operations and workflow. Delivery pricing is calculated dynamically based on weight and distance, and every parcel moves through a full lifecycle — from unpaid to delivered — with rider earnings tracking.",
-      "techStack": [
-        "React",
-        "Tailwind CSS",
-        "DaisyUI",
-        "React Router",
-        "TanStack Query",
-        "Recharts",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Firebase Authentication",
-        "JWT",
-        "Netlify"
-      ],
-      "liveLink": "https://simple-firebase-auth-c54cc.web.app",
-      "githubLink": "https://github.com/parety308/Zap_Shift_Client",
-      "backendGithubLink": "[Backend Repository URL — not provided]",
-      "challenges": [
-        "Modeling an 8-stage parcel lifecycle (unpaid → paid → pickup → in-transit → delivered) and keeping it in sync across three different dashboards",
-        "Implementing dynamic pricing rules based on parcel type, weight and whether delivery is within or outside the city",
-        "Building rider earnings logic that differs for in-city (80%) vs outside-city (60%) deliveries",
-        "Coordinating OTP-based confirmation for both pickup and final delivery"
-      ],
-      "improvements": [
-        "Add live map-based rider tracking",
-        "Send SMS/push notifications on status changes",
-        "Automate rider assignment based on proximity and load",
-        "Add a customer support / dispute-resolution flow"
-      ]
-    },
-    {
-      "id": "rent-nest",
-      "name": "RentNest",
-      "subtitle": "Rental Property Marketplace",
-      "image": "project-3",
-      "shortDescription": "A full-stack rental marketplace with a Next.js frontend and a separate Express/Prisma backend, secure Stripe payments, and role-based dashboards for tenants, landlords and admins.",
-      "overview": "RentNest connects tenants and landlords with secure payments and admin oversight. Tenants can browse and filter listings, submit rental requests, pay securely through Stripe, and leave reviews. Landlords create and manage property listings with image uploads and review incoming rental requests. Admins manage users, moderate listings, and oversee all rental requests through a dedicated dashboard. It is deployed as two independent services — a Next.js frontend and an Express/Prisma backend on separate origins.",
-      "techStack": [
-        "Next.js 16 (App Router)",
-        "React 19",
-        "TypeScript",
-        "Tailwind CSS v4",
-        "shadcn/ui",
-        "React Hook Form",
-        "Zod",
-        "Framer Motion",
-        "Node.js",
-        "Express 5",
-        "Prisma ORM",
-        "PostgreSQL",
-        "JWT Auth",
-        "Stripe",
-        "Cloudinary"
-      ],
-      "liveLink": "https://rentnest-a5.onrender.com",
-      "githubLink": "[Frontend Repository URL — not provided]",
-      "backendGithubLink": "[Backend Repository URL — not provided]",
-      "challenges": [
-        "Making authentication cookies work across two different origins by proxying client requests through a Next.js rewrite while forwarding cookies manually on server-side requests",
-        "Keeping JWT access-token expiry shorter than refresh-token expiry so the silent-refresh flow in middleware never breaks",
-        "Writing an environment-aware API client that calls a relative /api path in the browser but an absolute backend URL during server-side rendering and static generation",
-        "Verifying Stripe webhook signatures reliably in production"
-      ],
-      "improvements": [
-        "Add in-app messaging between landlords and tenants",
-        "Add map-based property search and filtering",
-        "Support additional payment methods beyond Stripe",
-        "Add an automated end-to-end test suite for the rental request → payment flow"
       ]
     }
   ]

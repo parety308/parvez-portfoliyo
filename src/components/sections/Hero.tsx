@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, type Variants } from "framer-motion";
@@ -9,21 +10,42 @@ import { socials } from "@/lib/socials";
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
 };
 
-export default function Hero() {
+const item: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+export default function Hero({
+  resumeAvailable,
+}: {
+  resumeAvailable: boolean;
+}) {
   return (
     <section
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-[#020617] pt-28 pb-16 text-white"
     >
       {/* Background */}
-      <div aria-hidden="true" className="bg-grid absolute inset-0 opacity-40" />
+      <div
+        aria-hidden="true"
+        className="bg-grid absolute inset-0 opacity-40"
+      />
       <div
         aria-hidden="true"
         className="animate-float absolute top-1/4 left-[10%] h-[480px] w-[480px] rounded-full bg-teal-500/20 blur-3xl"
@@ -44,7 +66,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-400" />
               </span>
-              Open to internships & junior roles
+              Open to Full Stack &amp; Software Engineer roles
             </motion.span>
 
             <motion.p
@@ -75,19 +97,33 @@ export default function Hero() {
               {personalInfo.tagline}
             </motion.p>
 
-            <motion.div variants={item} className="mb-10 flex flex-wrap gap-4">
-              <a
-                href={personalInfo.resumeUrl}
-                download
-                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 px-7 py-3.5 font-semibold text-black shadow-lg shadow-teal-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-teal-400/60"
-              >
-                <Download
-                  size={18}
-                  aria-hidden="true"
-                  className="transition group-hover:translate-y-0.5"
-                />
-                Download Resume
-              </a>
+            <motion.div
+              variants={item}
+              className="mb-10 flex flex-wrap gap-4"
+            >
+              {resumeAvailable ? (
+                <a
+                  href={personalInfo.resumeUrl}
+                  download
+                  className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 px-7 py-3.5 font-semibold text-black shadow-lg shadow-teal-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-teal-400/60"
+                >
+                  <Download
+                    size={18}
+                    aria-hidden="true"
+                    className="transition group-hover:translate-y-0.5"
+                  />
+                  Download Resume
+                </a>
+              ) : (
+                <a
+                  href={`mailto:${personalInfo.email}?subject=Resume request`}
+                  className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 px-7 py-3.5 font-semibold text-black shadow-lg shadow-teal-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-teal-400/60"
+                >
+                  <Download size={18} aria-hidden="true" />
+                  Request Resume
+                </a>
+              )}
+
               <Link
                 href="/#projects"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:border-teal-400 hover:text-teal-400"
@@ -151,7 +187,10 @@ export default function Hero() {
         <span className="text-xs tracking-[0.3em] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+          transition={{
+            repeat: Number.POSITIVE_INFINITY,
+            duration: 1.5,
+          }}
         >
           <ArrowDown size={18} />
         </motion.div>
