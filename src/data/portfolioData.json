@@ -3,12 +3,13 @@
     "name": "Md Parvez Hasan",
     "title": "Full Stack Developer",
     "tagline": "I build fast, reliable web applications with React, Node.js and MongoDB — from idea to production.",
-    "email": "parvezyesrat17032024@gmail.com",
+    "objective": "Third-year Computer Science and Engineering student and self-taught Full-Stack Developer skilled in React, Next.js, Node.js, Express.js, and SQL/NoSQL databases. Seeking a Junior Full-Stack Developer role where I can build secure, scalable web applications while continuing to strengthen my system design and backend engineering skills.",
+    "email": "md.parvez.hasan.dev@gmail.com",
     "phone": "+8801876097788",
     "whatsapp": "+8801876097788",
     "location": "Chattogram, Bangladesh",
     "avatar": "https://i.ibb.co.com/2LczZcR/789.jpg",
-    "resumeUrl": "/resume/Parvez_Web-Developer.pdf",
+    "resumeUrl": "/resume/Resume_Of_MD_Parvez_Hasan.pdf",
     "socials": {
       "github": "https://github.com/parety308",
       "linkedin": "https://www.linkedin.com/in/mdparvezhasan",
@@ -25,7 +26,8 @@
       "Solving tricky state-management and API-integration problems",
       "Turning a rough idea into a working, deployed product"
     ],
-    "hobbies": []
+    "hobbies": ["Cricket", "Exploring open-source projects", "Hiking"],
+    "learning": ["Next.js", "TypeScript", "System design", "Testing"]
   },
   "experience": [
     {
@@ -42,33 +44,61 @@
   ],
   "skills": {
     "frontend": [
+      { "name": "HTML5 / CSS3", "level": "Proficient" },
+      { "name": "JavaScript", "level": "Proficient" },
+      { "name": "TypeScript", "level": "Familiar" },
       { "name": "React.js", "level": "Proficient" },
       { "name": "Next.js", "level": "Familiar" },
-      { "name": "TypeScript", "level": "Familiar" },
       { "name": "Tailwind CSS", "level": "Proficient" },
-      { "name": "HTML5 / CSS3", "level": "Proficient" }
+      { "name": "DaisyUI", "level": "Proficient" }
     ],
     "backend": [
       { "name": "Node.js", "level": "Proficient" },
       { "name": "Express.js", "level": "Proficient" },
-      { "name": "REST APIs", "level": "Proficient" }
+      { "name": "REST APIs", "level": "Proficient" },
+      { "name": "JWT Authentication", "level": "Proficient" }
     ],
     "database": [
       { "name": "MongoDB", "level": "Proficient" },
-      { "name": "PostgreSQL", "level": "Familiar" }
+      { "name": "PostgreSQL", "level": "Familiar" },
+      { "name": "MySQL", "level": "Familiar" },
+      { "name": "Prisma", "level": "Familiar" }
     ],
     "tools": [
       { "name": "Git & GitHub", "level": "Proficient" },
-      { "name": "Firebase", "level": "Proficient" }
+      { "name": "Firebase", "level": "Proficient" },
+      { "name": "VS Code", "level": "Proficient" },
+      { "name": "Figma", "level": "Familiar" },
+      { "name": "Vercel", "level": "Familiar" },
+      { "name": "Netlify", "level": "Proficient" },
+      { "name": "Render", "level": "Familiar" }
+    ],
+    "interpersonal": [
+      "Teamwork",
+      "Problem-Solving",
+      "Communication",
+      "Time Management"
     ]
   },
   "education": [
     {
       "degree": "Bachelor of Science in Computer Science & Engineering",
-      "institution": "Chittagong University of Engineering and Technology, Bangladesh",
+      "institution": "Chittagong University of Engineering and Technology (CUET), Bangladesh",
       "year": "2024 – 2028",
+      "status": "3rd Year",
       "description": "Focused on software engineering, data structures and web technologies."
     }
+  ],
+  "certifications": [
+    {
+      "name": "Web Development Course",
+      "issuer": "Programming Hero (Batch 12)",
+      "url": "[Certificate URL — not provided]"
+    }
+  ],
+  "languages": [
+    { "name": "Bangla", "level": "Native" },
+    { "name": "English", "level": "Intermediate" }
   ],
   "projects": [
     {
@@ -111,10 +141,10 @@
     {
       "id": "zap-shift",
       "name": "ZapShift",
-      "subtitle": "Parcel Delivery Management System",
+      "subtitle": "Courier & Parcel Delivery Service",
       "image": "project-2",
-      "shortDescription": "A door-to-door parcel delivery platform with real-time tracking, dynamic pricing, and role-based dashboards for users, riders and admins.",
-      "overview": "ZapShift streamlines parcel booking, tracking, payment and delivery operations. It calculates delivery pricing dynamically based on weight and distance, assigns riders through an admin dashboard, and takes every parcel through a full lifecycle — from unpaid to delivered — with OTP-based delivery confirmation and rider earnings tracking.",
+      "shortDescription": "A courier and parcel delivery platform with booking, real-time tracking, dynamic pricing, and rider/warehouse coordination through role-based dashboards.",
+      "overview": "ZapShift streamlines parcel booking, tracking, payment and delivery operations. Users can book parcels, pay charges, track delivery status and receive real-time updates. Riders collect and deliver parcels, update status, and confirm delivery via OTP. Admins assign riders, manage routing, and oversee warehouse operations and workflow. Delivery pricing is calculated dynamically based on weight and distance, and every parcel moves through a full lifecycle — from unpaid to delivered — with rider earnings tracking.",
       "techStack": [
         "React",
         "Tailwind CSS",
@@ -126,10 +156,12 @@
         "Express.js",
         "MongoDB",
         "Firebase Authentication",
-        "JWT"
+        "JWT",
+        "Netlify"
       ],
       "liveLink": "https://simple-firebase-auth-c54cc.web.app",
       "githubLink": "https://github.com/parety308/Zap_Shift_Client",
+      "backendGithubLink": "[Backend Repository URL — not provided]",
       "challenges": [
         "Modeling an 8-stage parcel lifecycle (unpaid → paid → pickup → in-transit → delivered) and keeping it in sync across three different dashboards",
         "Implementing dynamic pricing rules based on parcel type, weight and whether delivery is within or outside the city",
@@ -148,8 +180,8 @@
       "name": "RentNest",
       "subtitle": "Rental Property Marketplace",
       "image": "project-3",
-      "shortDescription": "A full-stack rental marketplace with a Next.js frontend and a separate Express/Prisma backend, secure Stripe payments, and role-based dashboards.",
-      "overview": "RentNest lets landlords list and manage rental properties while tenants browse listings, submit rental requests, and pay securely through Stripe. It is deployed as two independent services — a Next.js frontend and an Express/Prisma backend on separate origins — with a full rental lifecycle from request to payment to review.",
+      "shortDescription": "A full-stack rental marketplace with a Next.js frontend and a separate Express/Prisma backend, secure Stripe payments, and role-based dashboards for tenants, landlords and admins.",
+      "overview": "RentNest connects tenants and landlords with secure payments and admin oversight. Tenants can browse and filter listings, submit rental requests, pay securely through Stripe, and leave reviews. Landlords create and manage property listings with image uploads and review incoming rental requests. Admins manage users, moderate listings, and oversee all rental requests through a dedicated dashboard. It is deployed as two independent services — a Next.js frontend and an Express/Prisma backend on separate origins.",
       "techStack": [
         "Next.js 16 (App Router)",
         "React 19",
@@ -159,6 +191,7 @@
         "React Hook Form",
         "Zod",
         "Framer Motion",
+        "Node.js",
         "Express 5",
         "Prisma ORM",
         "PostgreSQL",
@@ -167,7 +200,8 @@
         "Cloudinary"
       ],
       "liveLink": "https://rentnest-a5.onrender.com",
-      "githubLink": "[GitHub Repository URL — not provided]",
+      "githubLink": "[Frontend Repository URL — not provided]",
+      "backendGithubLink": "[Backend Repository URL — not provided]",
       "challenges": [
         "Making authentication cookies work across two different origins by proxying client requests through a Next.js rewrite while forwarding cookies manually on server-side requests",
         "Keeping JWT access-token expiry shorter than refresh-token expiry so the silent-refresh flow in middleware never breaks",

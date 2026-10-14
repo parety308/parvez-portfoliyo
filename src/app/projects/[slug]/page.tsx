@@ -78,9 +78,9 @@ export default async function ProjectPage(props: ProjectPageProps) {
           )}
         </div>
 
-        <h1 className="mb-2 text-3xl font-bold text-cyan-400 md:text-5xl">
-          {project.name}
-        </h1>
+        <h1 className="text-gradient mb-2 text-3xl font-extrabold md:text-5xl">
+  {project.name}
+</h1>
         <p className="mb-8 text-gray-400">{project.subtitle}</p>
 
         {/* Tech stack */}

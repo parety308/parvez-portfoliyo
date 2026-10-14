@@ -19,7 +19,12 @@ export default async function Footer() {
   const year = await getYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#0b0f19] px-6 py-12 text-gray-400">
+    <footer className="relative border-t border-white/10 bg-[#0b0f19] px-6 py-12 text-gray-400">
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
+      />
+
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="text-center md:text-left">
           <p className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-lg font-bold text-transparent">

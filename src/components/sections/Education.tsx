@@ -1,16 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 import { education } from "@/lib/portfolio";
 
 export default function Education() {
   return (
     <section
       id="education"
-      className="bg-gradient-to-b from-[#111827] to-[#0F172A] px-6 py-28 text-white"
+      className="relative overflow-hidden bg-gradient-to-b from-[#111827] to-[#0F172A] px-6 py-28 text-white"
     >
-      <div className="mx-auto max-w-7xl">
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-40 -left-40 -z-10 h-[450px] w-[450px] rounded-full bg-teal-600/15 blur-3xl"
+      />
+
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,34 +27,50 @@ export default function Education() {
             <GraduationCap size={18} aria-hidden="true" />
             Education
           </p>
-          <h2 className="text-4xl font-bold text-cyan-400 md:text-5xl">
+          <h2 className="text-gradient text-4xl font-bold md:text-5xl">
             Academic Background
           </h2>
         </motion.div>
 
-        <ol className="relative ml-4 border-l border-cyan-500/30">
+        <ol className="relative ml-5 border-l border-cyan-500/30">
           {education.map((item, index) => (
             <motion.li
               key={item.degree}
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="relative mb-12 ml-8 last:mb-0"
+              className="relative mb-12 ml-10 last:mb-0"
             >
+              {/* Glowing dot with icon */}
               <span
                 aria-hidden="true"
-                className="absolute top-2 -left-[41px] h-4 w-4 rounded-full border-4 border-[#0F172A] bg-cyan-500"
-              />
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-cyan-500/20 backdrop-blur-xl">
-                <h3 className="mb-2 text-xl font-semibold text-white">
-                  {item.degree}
-                </h3>
-                <p className="mb-2 text-sm text-cyan-400">{item.institution}</p>
-                <p className="mb-4 text-sm text-gray-500">{item.year}</p>
-                <p className="text-sm leading-relaxed text-gray-400">
-                  {item.description}
-                </p>
+                className="absolute top-6 -left-[3.35rem] flex h-9 w-9 items-center justify-center rounded-full border-4 border-[#0F172A] bg-gradient-to-br from-teal-400 to-cyan-500 text-black shadow-lg shadow-cyan-500/50"
+              >
+                <GraduationCap size={16} />
+              </span>
+
+              <div className="rounded-2xl bg-gradient-to-br from-teal-400/40 via-white/10 to-cyan-400/40 p-px transition hover:shadow-xl hover:shadow-cyan-500/20">
+                <div className="rounded-[calc(1rem-1px)] bg-[#0f172a] p-8">
+                  <div className="mb-3 flex flex-wrap items-center gap-3">
+                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-300">
+                      {item.year}
+                    </span>
+                    <span className="rounded-full border border-teal-400/30 bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-300">
+                      Currently studying
+                    </span>
+                  </div>
+                  <h3 className="mb-2 text-xl font-semibold text-white md:text-2xl">
+                    {item.degree}
+                  </h3>
+                  <p className="mb-4 flex items-start gap-2 text-sm text-cyan-400">
+                    <MapPin size={16} aria-hidden="true" className="mt-0.5 shrink-0" />
+                    {item.institution}
+                  </p>
+                  <p className="text-sm leading-relaxed text-gray-400">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             </motion.li>
           ))}

@@ -12,9 +12,9 @@ export default function Home() {
     <>
       <Hero resumeAvailable={hasResume()} />
       <About />
+      <Projects projects={getProjectsWithImages()} />
       <Education />
       <Skills />
-      <Projects projects={getProjectsWithImages()} />
       <Contact />
     </>
   );

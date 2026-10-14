@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { ProjectWithImage } from "@/types/portfolio";
+import { isPlaceholder } from "@/lib/portfolio";
 
 const MAX_TAGS = 3;
 
@@ -18,16 +19,18 @@ export default function Projects({
   const [activeTech, setActiveTech] = useState("All");
 
   const techOptions = useMemo(
-    () => ["All", ...new Set(projects.flatMap((p) => p.techStack))],
+    () => ["All", ...new Set(projects.flatMap((project) => project.techStack))],
     [projects],
   );
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
+
     return projects.filter((project) => {
       const matchesSearch = project.name.toLowerCase().includes(query);
       const matchesTech =
         activeTech === "All" || project.techStack.includes(activeTech);
+
       return matchesSearch && matchesTech;
     });
   }, [projects, search, activeTech]);
@@ -53,7 +56,7 @@ export default function Projects({
           </h2>
         </motion.div>
 
-        {/* Search + filter */}
+        {/* Search and technology filter */}
         <div className="mb-6 flex flex-col gap-4 md:flex-row">
           <div className="flex-1">
             <label htmlFor="project-search" className="sr-only">
@@ -64,7 +67,7 @@ export default function Projects({
               type="search"
               placeholder="Search projects..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(event) => setSearch(event.target.value)}
               className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 transition outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
             />
           </div>
@@ -76,7 +79,7 @@ export default function Projects({
             <select
               id="project-tech"
               value={activeTech}
-              onChange={(e) => setActiveTech(e.target.value)}
+              onChange={(event) => setActiveTech(event.target.value)}
               className="w-full rounded-xl border border-cyan-400/20 bg-[#111827] px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-400 md:w-64"
             >
               {techOptions.map((tech) => (
@@ -101,17 +104,18 @@ export default function Projects({
         <ul className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => {
             const extraTags = project.techStack.length - MAX_TAGS;
+
             return (
               <motion.li
                 key={project.id}
                 layout
                 whileHover={{ y: -10 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="group rounded-2xl border border-cyan-400/20 bg-[#0f172a]/80 shadow-lg backdrop-blur-xl transition duration-500 hover:border-cyan-400 hover:shadow-cyan-400/40"
+                className="group rounded-2xl bg-gradient-to-br from-white/10 to-white/0 p-px shadow-lg transition duration-500 hover:from-teal-400/60 hover:to-cyan-400/60 hover:shadow-cyan-400/30"
               >
                 <Link
                   href={`/projects/${project.id}`}
-                  className="block h-full rounded-2xl p-4"
+                  className="block h-full rounded-[calc(1rem-1px)] bg-[#0f172a] p-4"
                 >
                   <div className="relative h-56 overflow-hidden rounded-xl bg-[#0b0f19]">
                     {project.imageSrc ? (
@@ -128,15 +132,19 @@ export default function Projects({
                         <span className="text-xs">Screenshot coming soon</span>
                       </div>
                     )}
+
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f172a]/70 via-transparent to-transparent" />
                   </div>
 
                   <div className="p-6">
                     <h3 className="mb-1 text-xl font-semibold text-white">
                       {project.name}
                     </h3>
+
                     <p className="mb-3 text-xs text-cyan-400/70">
                       {project.subtitle}
                     </p>
+
                     <p className="mb-5 line-clamp-3 text-sm text-gray-400">
                       {project.shortDescription}
                     </p>
@@ -150,6 +158,7 @@ export default function Projects({
                           {tech}
                         </li>
                       ))}
+
                       {extraTags > 0 && (
                         <li className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-400">
                           +{extraTags} more
@@ -157,10 +166,17 @@ export default function Projects({
                       )}
                     </ul>
 
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 transition-all group-hover:gap-3">
-                      View Details
-                      <ArrowRight size={16} aria-hidden="true" />
-                    </span>
+                    <div className="flex items-center justify-between">
+  <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 transition-all group-hover:gap-3">
+    View Details
+    <ArrowRight size={16} aria-hidden="true" />
+  </span>
+  {!isPlaceholder(project.liveLink) && (
+    <span className="rounded-full border border-teal-400/30 bg-teal-500/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-teal-300 uppercase">
+      Live
+    </span>
+  )}
+</div>
                   </div>
                 </Link>
               </motion.li>

@@ -11,9 +11,9 @@ const categoryTitles: Record<SkillCategory, string> = {
   tools: "Tools & Platforms",
 };
 
-const levelStyles: Record<SkillLevel, string> = {
-  Proficient: "border-cyan-400/40 bg-cyan-500/10 text-cyan-300",
-  Familiar: "border-white/15 bg-white/5 text-gray-300",
+const dots: Record<SkillLevel, number> = {
+  Proficient: 4,
+  Familiar: 2,
 };
 
 const categories = Object.keys(categoryTitles) as SkillCategory[];
@@ -45,14 +45,31 @@ export default function Skills() {
           </h2>
         </motion.div>
 
-        <ul className="mb-14 flex flex-wrap gap-4 text-xs text-gray-400">
+        <ul
+          aria-label="Skill proficiency legend"
+          className="mb-14 flex flex-wrap gap-4 text-xs text-gray-400"
+        >
           <li className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-full border border-cyan-400/40 bg-cyan-500/30" />
-            Proficient: used in real projects regularly
+            <span aria-hidden="true" className="flex items-center gap-1">
+              {[1, 2, 3, 4].map((n) => (
+                <span
+                  key={n}
+                  className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400"
+                />
+              ))}
+            </span>
+            4 dots = Proficient
           </li>
           <li className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-full border border-white/15 bg-white/10" />
-            Familiar: used, still growing
+            <span aria-hidden="true" className="flex items-center gap-1">
+              {[1, 2].map((n) => (
+                <span
+                  key={n}
+                  className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-teal-400 to-cyan-400"
+                />
+              ))}
+            </span>
+            2 dots = Familiar
           </li>
         </ul>
 
@@ -70,14 +87,34 @@ export default function Skills() {
               <h3 className="mb-6 text-xl font-semibold text-cyan-400">
                 {categoryTitles[category]}
               </h3>
-              <ul className="flex flex-wrap gap-3">
+
+              <ul className="space-y-4">
                 {skills[category].map((skill) => (
                   <li
                     key={skill.name}
-                    className={`rounded-full border px-4 py-2 text-sm font-medium ${levelStyles[skill.level]}`}
+                    className="flex items-center justify-between gap-4"
                   >
-                    <span>{skill.name}</span>
-                    <span className="sr-only"> ({skill.level})</span>
+                    <span className="text-sm font-medium text-gray-200">
+                      {skill.name}
+                    </span>
+
+                    <span
+                      role="img"
+                      aria-label={`${skill.name}: ${skill.level}`}
+                      className="flex shrink-0 items-center gap-1.5"
+                    >
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <span
+                          key={n}
+                          aria-hidden="true"
+                          className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                            n <= dots[skill.level]
+                              ? "bg-gradient-to-br from-teal-400 to-cyan-400 shadow shadow-cyan-400/50"
+                              : "bg-white/10"
+                          }`}
+                        />
+                      ))}
+                    </span>
                   </li>
                 ))}
               </ul>

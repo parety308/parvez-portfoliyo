@@ -21,6 +21,7 @@ export type AboutContent = {
   focus: string;
   enjoy: string[];
   hobbies?: string[];
+  learning?: string[];
 };
 
 export type SkillLevel = "Proficient" | "Familiar";
