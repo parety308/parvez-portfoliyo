@@ -15,7 +15,7 @@
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-14-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 ![Biome](https://img.shields.io/badge/Biome-lint_&_format-60A5FA?style=for-the-badge&logo=biome&logoColor=white)
 
-[**Live Site**](https://your-portfolio-url.vercel.app) · [**Report a Bug**](../../issues) · [**Contact Me**](mailto:md.parvez.hasan.dev@gmail.com)
+[**Live Site**](https://parvez-portfoliyo.onrender.com) · [**Report a Bug**](../../issues) · [**Contact Me**](mailto:md.parvez.hasan.dev@gmail.com)
 
 </div>
 
