@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -5,10 +6,11 @@ import { ArrowRight, ImageOff } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { ProjectWithImage } from "@/types/portfolio";
 import { isPlaceholder } from "@/lib/portfolio";
+import type { ProjectWithImage } from "@/types/portfolio";
 
 const MAX_TAGS = 3;
+const INITIAL_PROJECTS = 3;
 
 export default function Projects({
   projects,
@@ -17,6 +19,7 @@ export default function Projects({
 }) {
   const [search, setSearch] = useState("");
   const [activeTech, setActiveTech] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const techOptions = useMemo(
     () => ["All", ...new Set(projects.flatMap((project) => project.techStack))],
@@ -27,13 +30,23 @@ export default function Projects({
     const query = search.trim().toLowerCase();
 
     return projects.filter((project) => {
-      const matchesSearch = project.name.toLowerCase().includes(query);
+      const matchesSearch =
+        project.name.toLowerCase().includes(query) ||
+        project.shortDescription.toLowerCase().includes(query) ||
+        project.techStack.some((tech) => tech.toLowerCase().includes(query));
+
       const matchesTech =
         activeTech === "All" || project.techStack.includes(activeTech);
 
       return matchesSearch && matchesTech;
     });
   }, [projects, search, activeTech]);
+
+  const hasActiveFilter = search.trim() !== "" || activeTech !== "All";
+  const visibleProjects =
+    showAll || hasActiveFilter
+      ? filtered
+      : filtered.slice(0, INITIAL_PROJECTS);
 
   return (
     <section
@@ -54,6 +67,10 @@ export default function Projects({
           <h2 className="text-4xl font-bold text-cyan-400 md:text-5xl">
             Featured Work
           </h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-400 sm:text-base">
+            A selection of projects showcasing my skills, technologies, and
+            experience building web applications.
+          </p>
         </motion.div>
 
         {/* Search and technology filter */}
@@ -67,7 +84,10 @@ export default function Projects({
               type="search"
               placeholder="Search projects..."
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                setShowAll(false);
+              }}
               className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 transition outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400"
             />
           </div>
@@ -79,7 +99,10 @@ export default function Projects({
             <select
               id="project-tech"
               value={activeTech}
-              onChange={(event) => setActiveTech(event.target.value)}
+              onChange={(event) => {
+                setActiveTech(event.target.value);
+                setShowAll(false);
+              }}
               className="w-full rounded-xl border border-cyan-400/20 bg-[#111827] px-4 py-3 outline-none focus:ring-2 focus:ring-cyan-400 md:w-64"
             >
               {techOptions.map((tech) => (
@@ -92,7 +115,9 @@ export default function Projects({
         </div>
 
         <p aria-live="polite" className="mb-10 text-sm text-gray-500">
-          Showing {filtered.length} of {projects.length} projects
+          {hasActiveFilter
+            ? `Found ${filtered.length} matching projects`
+            : `Showing ${visibleProjects.length} of ${projects.length} projects`}
         </p>
 
         {filtered.length === 0 && (
@@ -101,16 +126,18 @@ export default function Projects({
           </p>
         )}
 
-        <ul className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project) => {
+        <motion.ul layout className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {visibleProjects.map((project) => {
             const extraTags = project.techStack.length - MAX_TAGS;
 
             return (
               <motion.li
                 key={project.id}
                 layout
-                whileHover={{ y: -10 }}
-                transition={{ type: "spring", stiffness: 200 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 className="group rounded-2xl bg-gradient-to-br from-white/10 to-white/0 p-px shadow-lg transition duration-500 hover:from-teal-400/60 hover:to-cyan-400/60 hover:shadow-cyan-400/30"
               >
                 <Link
@@ -129,7 +156,9 @@ export default function Projects({
                     ) : (
                       <div className="flex h-full flex-col items-center justify-center gap-2 bg-white/5 text-gray-500">
                         <ImageOff size={28} aria-hidden="true" />
-                        <span className="text-xs">Screenshot coming soon</span>
+                        <span className="text-xs">
+                          Screenshot coming soon
+                        </span>
                       </div>
                     )}
 
@@ -145,7 +174,7 @@ export default function Projects({
                       {project.subtitle}
                     </p>
 
-                    <p className="mb-5 line-clamp-3 text-sm text-gray-400">
+                    <p className="mb-5 line-clamp-3 text-sm leading-relaxed text-gray-400">
                       {project.shortDescription}
                     </p>
 
@@ -167,22 +196,46 @@ export default function Projects({
                     </ul>
 
                     <div className="flex items-center justify-between">
-  <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 transition-all group-hover:gap-3">
-    View Details
-    <ArrowRight size={16} aria-hidden="true" />
-  </span>
-  {!isPlaceholder(project.liveLink) && (
-    <span className="rounded-full border border-teal-400/30 bg-teal-500/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-teal-300 uppercase">
-      Live
-    </span>
-  )}
-</div>
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 transition-all group-hover:gap-3">
+                        View Details
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </span>
+
+                      {!isPlaceholder(project.liveLink) && (
+                        <span className="rounded-full border border-teal-400/30 bg-teal-500/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-teal-300 uppercase">
+                          Live
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </Link>
               </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
+
+        {/* Show all / show less */}
+        {!hasActiveFilter && projects.length > INITIAL_PROJECTS && (
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((previous) => !previous)}
+              aria-expanded={showAll}
+              className="group inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/20 hover:shadow-lg hover:shadow-cyan-400/10"
+            >
+              {showAll ? "Show Less" : "Show All Projects"}
+              <ArrowRight
+                size={16}
+                aria-hidden="true"
+                className={`transition-transform duration-300 ${
+                  showAll
+                    ? "-rotate-90"
+                    : "group-hover:translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -149,34 +149,27 @@ export default function Contact() {
           </h2>
 
           <p className="mb-10 max-w-lg leading-relaxed text-gray-400">
-            I'm looking for an internship or junior role where I can learn fast
-            and ship real features. Send a message or reach out directly. I
-            usually reply within a day.
-          </p>
-
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {contactCards.map(({ label, value, href, Icon }) => {
-              const body = (
-                <>
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-300 transition group-hover:bg-cyan-400 group-hover:text-black">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-
-                <p className="mb-10 max-w-lg leading-relaxed text-gray-400">
   I'm looking for a Full Stack Developer or Software Engineer role where I
   can build secure, scalable products and keep growing my backend and system
   design skills. Send a message or reach out directly. I usually reply within
   a day.
-</p>  <span className="min-w-0">
-                    <span className="block text-xs tracking-wider text-gray-500 uppercase">
-                      {label}
-                    </span>
-                    <span className="block truncate text-sm text-gray-200">
-                      {value}
-                    </span>
-                  </span>
-                </>
-              );
+</p>
+
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {contactCards.map(({ label, value, href, Icon }) => {
+              const body = (
+  <>
+    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-300 transition group-hover:bg-cyan-400 group-hover:text-black">
+      <Icon size={20} aria-hidden="true" />
+    </span>
+    <span className="min-w-0">
+      <span className="block text-xs tracking-wider text-gray-500 uppercase">
+        {label}
+      </span>
+      <span className="block truncate text-sm text-gray-200">{value}</span>
+    </span>
+  </>
+);
 
               const cls =
                 "group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition";

@@ -1,10 +1,11 @@
+
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const navItems = [
   { label: "Home", id: "home", href: "/" },
@@ -22,38 +23,68 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("home");
 
-  // Solid background after scrolling (always solid on inner pages)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy: highlight the section currently in view (home page only)
-  useEffect(() => {
+  const updateActiveSection = useCallback(() => {
     if (!isHome) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveId(entry.target.id);
-        }
-      },
-      { rootMargin: "-40% 0px -55% 0px" },
-    );
+
+    const activationLine = 150;
+    let currentSection = "home";
+    let closestDistance = Number.POSITIVE_INFINITY;
+
     for (const item of navItems) {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
+      const section = document.getElementById(item.id);
+      if (!section) continue;
+
+      const distance = Math.abs(
+        section.getBoundingClientRect().top - activationLine,
+      );
+
+      if (
+        section.getBoundingClientRect().top <= activationLine &&
+        section.getBoundingClientRect().bottom > activationLine
+      ) {
+        currentSection = item.id;
+        closestDistance = 0;
+        break;
+      }
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        currentSection = item.id;
+      }
     }
-    return () => observer.disconnect();
+
+    setActiveId(currentSection);
   }, [isHome]);
 
-  // Close the mobile menu with Escape
+  useEffect(() => {
+    if (!isHome) return;
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [isHome, updateActiveSection]);
+
   useEffect(() => {
     if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
     };
+
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen]);
@@ -74,21 +105,25 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            setActiveId("home");
+          }}
           aria-label="Go to home"
           className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-xl font-bold text-transparent md:text-2xl"
         >
           {"< PARVEZ />"}
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => {
             const isActive = isHome && activeId === item.id;
+
             return (
               <li key={item.id} className="relative">
                 <Link
                   href={item.href}
+                  onClick={() => setActiveId(item.id)}
                   aria-current={isActive ? "location" : undefined}
                   className={`text-sm font-medium transition-colors duration-300 ${
                     isActive
@@ -98,10 +133,11 @@ export default function Navbar() {
                 >
                   {item.label}
                 </Link>
+
                 {isActive && (
                   <motion.span
                     layoutId="activeIndicator"
-                    className="absolute -bottom-2 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
+                    className="absolute -bottom-2 right-0 left-0 h-[2px] rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
                   />
                 )}
               </li>
@@ -109,7 +145,6 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setIsOpen((open) => !open)}
@@ -122,7 +157,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -136,11 +170,16 @@ export default function Navbar() {
             <ul className="flex flex-col gap-2 px-6 py-5">
               {navItems.map((item) => {
                 const isActive = isHome && activeId === item.id;
+
                 return (
                   <li key={item.id}>
                     <Link
                       href={item.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => {
+                        setIsOpen(false);
+                        setActiveId(item.id);
+                      }}
+                      aria-current={isActive ? "location" : undefined}
                       className={`block rounded-lg px-4 py-3 text-sm font-medium transition ${
                         isActive
                           ? "bg-teal-400/10 text-teal-400"
