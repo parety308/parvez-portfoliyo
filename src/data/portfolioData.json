@@ -87,7 +87,8 @@
   ],
   "languages": [
     { "name": "Bangla", "level": "Native" },
-    { "name": "English", "level": "Intermediate" }
+    { "name": "English", "level": "Intermediate" },
+    { "name": "Hindi", "level": "Intermediate" }
   ],
   "projects": [
     {

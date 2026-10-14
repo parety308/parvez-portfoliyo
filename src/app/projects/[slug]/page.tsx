@@ -1,4 +1,3 @@
-
 import {
   AlertTriangle,
   ArrowLeft,
@@ -10,12 +9,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { FaGithub } from "react-icons/fa";
 import { isPlaceholder, projects } from "@/lib/portfolio";
 import { getProjectWithImage } from "@/lib/projectImages";
 
+type Params = Promise<{ slug: string }>;
+
 type ProjectPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Params;
 };
 
 export function generateStaticParams() {
@@ -38,8 +40,35 @@ export async function generateMetadata(
   };
 }
 
-export default async function ProjectPage(props: ProjectPageProps) {
-  const { slug } = await props.params;
+/** Instant shell shown while the project data resolves. */
+function ProjectSkeleton() {
+  return (
+    <article
+      aria-busy="true"
+      className="min-h-screen bg-[#0b0f19] px-6 pt-28 pb-24 text-white"
+    >
+      <div className="mx-auto max-w-5xl animate-pulse">
+        <div className="mb-8 h-4 w-36 rounded bg-white/10" />
+        <div className="mb-10 h-64 rounded-2xl bg-white/5 sm:h-96" />
+        <div className="mb-3 h-10 w-2/3 rounded bg-white/10" />
+        <div className="mb-8 h-4 w-1/3 rounded bg-white/5" />
+        <div className="mb-10 flex gap-2">
+          <div className="h-6 w-20 rounded-full bg-white/5" />
+          <div className="h-6 w-24 rounded-full bg-white/5" />
+          <div className="h-6 w-16 rounded-full bg-white/5" />
+        </div>
+        <div className="space-y-3">
+          <div className="h-4 w-full rounded bg-white/5" />
+          <div className="h-4 w-full rounded bg-white/5" />
+          <div className="h-4 w-3/4 rounded bg-white/5" />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+async function ProjectContent({ params }: { params: Params }) {
+  const { slug } = await params;
   const project = getProjectWithImage(slug);
 
   if (!project) {
@@ -232,5 +261,13 @@ export default async function ProjectPage(props: ProjectPageProps) {
         </Link>
       </div>
     </article>
+  );
+}
+
+export default function ProjectPage(props: ProjectPageProps) {
+  return (
+    <Suspense fallback={<ProjectSkeleton />}>
+      <ProjectContent params={props.params} />
+    </Suspense>
   );
 }
