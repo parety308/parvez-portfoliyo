@@ -112,7 +112,7 @@ This is my personal portfolio, built with the **Next.js App Router**. It's desig
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/parety308/<your-repo-name>.git
+git clone https://github.com/parvezhasan54/<your-repo-name>.git
 cd <your-repo-name>
 
 # 2. Install dependencies
@@ -355,7 +355,7 @@ This project is open source under the **MIT License**. You're free to use the co
 ### Let's build something great together
 
 [![Email](https://img.shields.io/badge/Email-md.parvez.hasan.dev@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:md.parvez.hasan.dev@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-parety308-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/parety308)
+[![GitHub](https://img.shields.io/badge/GitHub-parvezhasan54-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/parvezhasan54)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mdparvezhasan-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mdparvezhasan)
 
 **Designed & built by Md Parvez Hasan** · CSE, CUET 🇧🇩

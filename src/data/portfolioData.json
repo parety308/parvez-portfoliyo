@@ -11,7 +11,7 @@
     "avatar": "https://i.postimg.cc/YCf2396s/2c1624dd-fcfb-4adb-bbf1-dbe40d4fe788.jpg",
     "resumeUrl": "/resume/Resume_Of_MD_Parvez_Hasan.pdf",
     "socials": {
-      "github": "https://github.com/parety308",
+      "github": "https://github.com/parvezhasan54",
       "linkedin": "https://www.linkedin.com/in/mdparvezhasan",
       "facebook": "https://www.facebook.com/share/173ddoiXfL/",
       "twitter": "[Your Twitter/X profile URL]"
@@ -119,8 +119,8 @@
       ],
       "liveLink": "https://nagar-sheba-online.onrender.com/",
       "liveApiLink": "https://nagar-sheba.onrender.com/",
-      "githubLink": "https://github.com/parety308/Nagar-Sheba-Frontend",
-      "backendGithubLink": "https://github.com/parety308/Nagar-Sheba",
+      "githubLink": "https://github.com/parvezhasan54/Nagar-Sheba-Frontend",
+      "backendGithubLink": "https://github.com/parvezhasan54/Nagar-Sheba",
       "challenges": [
         "Building JWT authentication with rotating refresh tokens, Google Sign-In and email OTP, with three-role access control verified against the database",
         "Making SSLCommerz and bKash payment callbacks idempotent, verifying them server-side, and issuing automatic refunds",
@@ -159,8 +159,8 @@
         "Cloudinary"
       ],
       "liveLink": "https://rentnest-a5.onrender.com/",
-      "githubLink": "https://github.com/parety308/RentNest_A5",
-      "backendGithubLink": "https://github.com/parety308/RentNest_A4",
+      "githubLink": "https://github.com/parvezhasan54/RentNest_A5",
+      "backendGithubLink": "https://github.com/parvezhasan54/RentNest_A4",
       "challenges": [
         "Making authentication cookies work across two different origins by proxying client requests through a Next.js rewrite while forwarding cookies manually on server-side requests",
         "Keeping JWT access-token expiry shorter than refresh-token expiry so the silent-refresh flow in middleware never breaks",
@@ -196,8 +196,8 @@
         "Netlify"
       ],
       "liveLink": "https://simple-firebase-auth-c54cc.web.app/",
-      "githubLink": "https://github.com/parety308/Zap_Shift_Client",
-      "backendGithubLink": "https://github.com/parety308/Zap_Shift_Server",
+      "githubLink": "https://github.com/parvezhasan54/Zap_Shift_Client",
+      "backendGithubLink": "https://github.com/parvezhasan54/Zap_Shift_Server",
       "challenges": [
         "Modeling an 8-stage parcel lifecycle (unpaid → paid → pickup → in-transit → delivered) and keeping it in sync across three different dashboards",
         "Implementing dynamic pricing rules based on parcel type, weight and whether delivery is within or outside the city",
@@ -234,7 +234,7 @@
         "JWT"
       ],
       "liveLink": "https://local-chef-bazaar-online.netlify.app",
-      "githubLink": "https://github.com/parety308/Local_Chef_Bazaar_Client",
+      "githubLink": "https://github.com/parvezhasan54/Local_Chef_Bazaar_Client",
       "challenges": [
         "Combining Firebase Authentication with a JWT-secured API, including an Axios interceptor that injects and refreshes tokens automatically",
         "Building role-based route protection for User, Chef and Admin dashboards",
